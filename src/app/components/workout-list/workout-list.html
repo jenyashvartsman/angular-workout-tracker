@@ -1,0 +1,25 @@
+<section aria-labelledby="list-title">
+  <div class="flex items-center justify-between mb-4">
+    <h2 id="list-title" class="text-xl font-bold text-gray-900">My Workouts</h2>
+    @if (workouts().length > 0) {
+      <span class="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+        {{ workouts().length }} logged
+      </span>
+    }
+  </div>
+
+  @if (workouts().length === 0) {
+    <div class="text-center py-16 bg-white rounded-2xl border border-gray-100 shadow-sm">
+      <p class="text-gray-400 text-base">No workouts yet</p>
+      <p class="text-gray-300 text-sm mt-1">Log your first workout to get started</p>
+    </div>
+  } @else {
+    <ol class="space-y-3 list-none">
+      @for (workout of workouts(); track $index) {
+        <li>
+          <app-workout-card [workout]="workout" />
+        </li>
+      }
+    </ol>
+  }
+</section>
