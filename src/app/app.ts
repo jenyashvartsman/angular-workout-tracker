@@ -15,7 +15,9 @@ import { ThemeService } from './services/theme.service';
 export class App {
   protected readonly store = inject(workoutStore);
   protected readonly theme = inject(ThemeService);
-  protected readonly metricConfig = computed(() => WORKOUT_METRIC_CONFIG[this.store.selectedType()]);
+  protected readonly metricConfig = computed(
+    () => WORKOUT_METRIC_CONFIG[this.store.selectedType()],
+  );
 
   onTypeChange(type: WorkoutType): void {
     this.store.selectType(type);
