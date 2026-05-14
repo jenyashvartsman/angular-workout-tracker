@@ -53,6 +53,9 @@ export const workoutStore = signalStore(
     selectMetric: (metric: number) => {
       patchState(store, { selectedMetric: metric });
     },
+    clearWorkouts: () => {
+      patchState(store, { workouts: [] });
+    },
   })),
   withComputed(({ workouts }) => ({
     workoutsWithCalories: computed<WorkoutWithCalories[]>(() =>

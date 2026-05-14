@@ -23,6 +23,10 @@ export class App {
     this.store.selectMetric(metric);
   }
 
+  onClearWorkouts(): void {
+    this.store.clearWorkouts();
+  }
+
   onAddWorkout(): void {
     const type = this.store.selectedType();
     const metric = this.store.selectedMetric();

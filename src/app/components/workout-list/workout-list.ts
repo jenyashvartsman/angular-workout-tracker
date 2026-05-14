@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { WorkoutWithCalories } from '../../config/calories.config';
 import { WorkoutCardComponent } from '../workout-card/workout-card';
 
@@ -11,4 +11,5 @@ import { WorkoutCardComponent } from '../workout-card/workout-card';
 export class WorkoutListComponent {
   workouts = input.required<WorkoutWithCalories[]>();
   totalCalories = input.required<number>();
+  clear = output<void>();
 }

@@ -22,7 +22,8 @@
       <div class="lg:col-span-3">
         <app-workout-list
           [workouts]="store.workoutsWithCalories()"
-          [totalCalories]="store.totalCalories()" />
+          [totalCalories]="store.totalCalories()"
+          (clear)="onClearWorkouts()" />
       </div>
     </div>
   </main>

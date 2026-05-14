@@ -2,9 +2,19 @@
   <div class="flex items-center justify-between mb-4">
     <h2 id="list-title" class="text-xl font-bold text-gray-900">My Workouts</h2>
     @if (workouts().length > 0) {
-      <span class="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-        {{ workouts().length }} logged
-      </span>
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+          {{ workouts().length }} logged
+        </span>
+        <button
+          type="button"
+          class="text-sm font-medium text-red-500 hover:text-red-700 hover:bg-red-50 px-3 py-1 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 cursor-pointer"
+          aria-label="Clear all workouts"
+          (click)="clear.emit()"
+        >
+          Clear all
+        </button>
+      </div>
     }
   </div>
 
@@ -21,7 +31,9 @@
         </li>
       }
     </ol>
-    <div class="flex items-center justify-between bg-orange-50 border border-orange-100 rounded-xl px-4 py-3">
+    <div
+      class="flex items-center justify-between bg-orange-50 border border-orange-100 rounded-xl px-4 py-3"
+    >
       <p class="text-sm font-medium text-orange-700">Total calories burned</p>
       <p class="text-base font-bold text-orange-500">{{ totalCalories() }} kcal</p>
     </div>
