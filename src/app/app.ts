@@ -4,6 +4,7 @@ import { WorkoutType } from './dtos/workout.dto';
 import { WORKOUT_METRIC_CONFIG } from './config/workout-options.config';
 import { WorkoutFormComponent } from './components/workout-form/workout-form';
 import { WorkoutListComponent } from './components/workout-list/workout-list';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { WorkoutListComponent } from './components/workout-list/workout-list';
 })
 export class App {
   protected readonly store = inject(workoutStore);
+  protected readonly theme = inject(ThemeService);
   protected readonly metricConfig = computed(() => WORKOUT_METRIC_CONFIG[this.store.selectedType()]);
 
   onTypeChange(type: WorkoutType): void {

@@ -1,3 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+/* Class-based dark mode: active when an ancestor has the .dark class */
+@variant dark (&:where(.dark, .dark *));
