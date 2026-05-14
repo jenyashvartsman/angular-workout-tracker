@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { WorkoutDto } from '../../dtos/workout.dto';
+import { WorkoutWithCalories } from '../../config/calories.config';
 import { WorkoutCardComponent } from '../workout-card/workout-card';
 
 @Component({
@@ -9,5 +9,6 @@ import { WorkoutCardComponent } from '../workout-card/workout-card';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkoutListComponent {
-  workouts = input.required<WorkoutDto[]>();
+  workouts = input.required<WorkoutWithCalories[]>();
+  totalCalories = input.required<number>();
 }

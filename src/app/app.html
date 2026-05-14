@@ -20,7 +20,9 @@
       </div>
 
       <div class="lg:col-span-3">
-        <app-workout-list [workouts]="store.workouts()" />
+        <app-workout-list
+          [workouts]="store.workoutsWithCalories()"
+          [totalCalories]="store.totalCalories()" />
       </div>
     </div>
   </main>

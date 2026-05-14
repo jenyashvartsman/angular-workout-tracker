@@ -9,6 +9,7 @@ import {
 } from '@ngrx/signals';
 import { WorkoutDto, WorkoutType } from '../dtos/workout.dto';
 import { WORKOUT_OPTIONS } from '../config/workout-options.config';
+import { calculateCalories, WorkoutWithCalories } from '../config/calories.config';
 import { computed, effect } from '@angular/core';
 
 const STORAGE_KEY = 'workouts';
@@ -52,6 +53,14 @@ export const workoutStore = signalStore(
     selectMetric: (metric: number) => {
       patchState(store, { selectedMetric: metric });
     },
+  })),
+  withComputed(({ workouts }) => ({
+    workoutsWithCalories: computed<WorkoutWithCalories[]>(() =>
+      workouts().map((w) => ({ ...w, calories: calculateCalories(w) })),
+    ),
+    totalCalories: computed(() =>
+      workouts().reduce((sum, w) => sum + calculateCalories(w), 0),
+    ),
   })),
   withHooks((store) => ({
     onInit() {

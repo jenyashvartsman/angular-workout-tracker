@@ -19,6 +19,7 @@ const TYPE_ICONS: Record<WorkoutType, string> = {
 })
 export class WorkoutCardComponent {
   workout = input.required<WorkoutDto>();
+  calories = input.required<number>();
 
   protected readonly icon = computed(() => TYPE_ICONS[this.workout().type]);
 
